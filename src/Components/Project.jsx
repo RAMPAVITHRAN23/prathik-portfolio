@@ -39,6 +39,8 @@ const TiltCard = ({ project }) => {
         const x = (e.clientX - left) / width - 0.5;
         const y = (e.clientY - top) / height - 0.5;
         setTilt({ x: y * -threshold, y: x * threshold });
+
+        
     };
 
     return (
