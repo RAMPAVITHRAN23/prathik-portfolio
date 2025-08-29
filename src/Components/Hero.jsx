@@ -52,10 +52,11 @@ const Hero = () => {
                     >
                         Get in Touch
                         <FiArrowDownCircle className="w-6 h-6 animate-bounce" />
+                        
                     </a>
                 </div>
 
-                {/* 🌐 Social Media Icons */}
+                {/*  Social Media Icons */}
                 <div className="mt-8 flex gap-6 justify-center md:justify-start">
                     <a
                         href="https://github.com/prathik-l"

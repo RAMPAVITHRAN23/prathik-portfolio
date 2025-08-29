@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll"; // for smooth scrolling
+import { motion } from "framer-motion"; // for hover/tap animations
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navItems = ["Home", "About", "Experience", "Projects"];
 
     return (
         <div className="mb-10 w-full">
@@ -9,22 +12,32 @@ const Navbar = () => {
                 {/* Logo */}
                 <a className="hover:text-indigo-600" href="#">
                     <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight">
-                        Prathik <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Folio</span>
+                        Prathik{" "}
+                        <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            Folio
+                        </span>
                     </h1>
                 </a>
 
                 {/* Desktop Menu */}
                 <nav className="hidden md:flex items-center gap-8 font-semibold text-gray-800 text-sm">
-                    {["Home", "About", "Experience", "Projects"].map((item) => (
-                        <a
-                            key={item} 
-                            href={`#${item.toLowerCase()}`}
-                            className="relative group cursor-pointer"
+                    {navItems.map((item) => (
+                        <motion.div
+                            key={item}
+                            whileHover={{ scale: 1.1, color: "#6366F1" }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            {item}  {/* Underline effect on hover */}
-                            <span className="absolute left-0 -bottom-1.5 w-0 
-                            h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                            <Link
+                                to={item.toLowerCase()} // link to section id
+                                smooth={true}           // enable smooth scroll
+                                duration={700}          // scroll duration in ms
+                                offset={-80}            // adjust for sticky header
+                                className="relative group cursor-pointer"
+                            >
+                                {item}
+                                <span className="absolute left-0 -bottom-1.5 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+                        </motion.div>
                     ))}
                 </nav>
 
@@ -32,7 +45,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center">
                     <a
                         className="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-700 transition"
-                        href="#"
+                        href="#footer"
                     >
                         Get connected
                     </a>
@@ -74,21 +87,26 @@ const Navbar = () => {
             {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden flex flex-col items-center gap-6 bg-white shadow-lg rounded-2xl mt-2 py-6 text-gray-800 font-semibold">
-                    {["Home", "About", "Experience", "Projects"].map((item) => (
-                        <a
+                    {navItems.map((item) => (
+                        <Link
                             key={item}
-                            href={`#${item.toLowerCase()}`}
+                            to={item.toLowerCase()}
+                            smooth={true}
+                            duration={700}
+                            offset={-80}
                             className="relative group cursor-pointer text-lg"
-                            onClick={() => setIsOpen(false)} // close menu on click
+                            onClick={() => setIsOpen(false)}
                         >
                             {item}
                             <span className="absolute left-0 -bottom-1.5 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+                        </Link>
                     ))}
                     <a
-                        className="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-700 transition"
-                        href="#"
+                        className="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-700 
+                        "
+                        href="#footer"
                         onClick={() => setIsOpen(false)}
+                        
                     >
                         Get connected
                     </a>

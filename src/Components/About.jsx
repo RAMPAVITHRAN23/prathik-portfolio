@@ -32,7 +32,7 @@ const About = () => {
                     </div>
 
                     {/* Education */}
-                    <div>
+                    <div id="education">
                         <h3 className="flex items-center gap-2 text-2xl font-semibold text-gray-800 mb-4">
                             <FaGraduationCap className="text-indigo-600" /> Education & Honors
                         </h3>
@@ -54,7 +54,7 @@ const About = () => {
                     </div>
 
                     {/* Experience */}
-                    <div>
+                    <div id="experience">
                         <h3 className="flex items-center gap-2 text-2xl font-semibold text-gray-800 mb-4">
                             <FaBriefcase className="text-indigo-600" /> Professional Experience
                         </h3>
@@ -72,7 +72,7 @@ const About = () => {
                     </div>
 
                     {/* Skills */}
-                    <div>
+                    <div id="skills">
                         <h3 className="flex items-center gap-2 text-2xl font-semibold text-gray-800 mb-4">
                             <FaTools className="text-indigo-600" /> Skills
                         </h3>
